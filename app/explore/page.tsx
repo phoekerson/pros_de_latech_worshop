@@ -1,7 +1,7 @@
 import { FeedView } from "@/components/feed/FeedView";
 import { creationsStore } from "@/lib/infrastructure/creations-store";
 
-export default function HomePage() {
+export default function ExplorePage() {
   const creations = creationsStore.getAll();
 
   return (
