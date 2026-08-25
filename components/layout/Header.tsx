@@ -3,8 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  SignedIn,
-  SignedOut,
+  Show,
   SignInButton,
   UserButton,
 } from "@clerk/nextjs";
@@ -57,7 +56,7 @@ export function Header() {
         </nav>
 
         <div className="ml-auto flex items-center gap-3">
-          <SignedIn>
+          <Show when="signed-in">
             <Link
               href="/upload"
               className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-black transition-colors hover:bg-accent-hover"
@@ -72,9 +71,9 @@ export function Header() {
                 },
               }}
             />
-          </SignedIn>
+          </Show>
 
-          <SignedOut>
+          <Show when="signed-out">
             <SignInButton mode="modal">
               <Button variant="secondary" size="sm">
                 Se connecter
@@ -85,7 +84,7 @@ export function Header() {
                 Commencer
               </Button>
             </SignInButton>
-          </SignedOut>
+          </Show>
         </div>
       </div>
     </header>
