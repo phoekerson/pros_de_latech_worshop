@@ -23,5 +23,5 @@ export const MOOD_LABELS: Record<MusicMood, string> = {
 export const NAV_LINKS = [
   { href: "/", label: "Accueil" },
   { href: "/explore", label: "Explorer" },
-  { href: "/upload", label: "Publier", requiresAuth: true },
+  { href: "/upload", label: "Publier" },
 ] as const;

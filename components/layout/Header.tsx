@@ -2,15 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  Show,
-  SignInButton,
-  UserButton,
-} from "@clerk/nextjs";
 import { Plus, Search } from "lucide-react";
 import { APP_NAME, NAV_LINKS } from "@/lib/domain/constants";
 import { cn } from "@/lib/utils/cn";
-import { Button } from "@/components/ui/Button";
 
 export function Header() {
   const pathname = usePathname();
@@ -56,35 +50,13 @@ export function Header() {
         </nav>
 
         <div className="ml-auto flex items-center gap-3">
-          <Show when="signed-in">
-            <Link
-              href="/upload"
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-black transition-colors hover:bg-accent-hover"
-              aria-label="Publier une création"
-            >
-              <Plus className="h-5 w-5" />
-            </Link>
-            <UserButton
-              appearance={{
-                elements: {
-                  avatarBox: "h-9 w-9",
-                },
-              }}
-            />
-          </Show>
-
-          <Show when="signed-out">
-            <SignInButton mode="modal">
-              <Button variant="secondary" size="sm">
-                Se connecter
-              </Button>
-            </SignInButton>
-            <SignInButton mode="modal">
-              <Button variant="accent" size="sm">
-                Commencer
-              </Button>
-            </SignInButton>
-          </Show>
+          <Link
+            href="/upload"
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-black transition-colors hover:bg-accent-hover"
+            aria-label="Publier une création"
+          >
+            <Plus className="h-5 w-5" />
+          </Link>
         </div>
       </div>
     </header>

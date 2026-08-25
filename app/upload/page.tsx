@@ -2,14 +2,12 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useUser } from "@clerk/nextjs";
 import { ImagePlus, Upload } from "lucide-react";
 import type { CreationCategory, MusicMood } from "@/lib/domain/types";
 import { CATEGORY_LABELS, MOOD_LABELS } from "@/lib/domain/constants";
 import { Button } from "@/components/ui/Button";
 
 export default function UploadPage() {
-  const { user } = useUser();
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [preview, setPreview] = useState<string | null>(null);
@@ -73,7 +71,7 @@ export default function UploadPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight">Publier une création</h1>
         <p className="mt-2 text-muted">
-          Partage ton travail avec la communauté, {user?.firstName ?? "créateur"}.
+          Partage ton travail avec la communauté.
         </p>
       </div>
 
