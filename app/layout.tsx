@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { ClerkProvider } from "@clerk/nextjs";
-import { frFR } from "@clerk/localizations";
 import { Header } from "@/components/layout/Header";
 import { APP_NAME } from "@/lib/domain/constants";
 import "./globals.css";
@@ -29,10 +27,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        <ClerkProvider localization={frFR}>
-          <Header />
-          <main className="flex-1">{children}</main>
-        </ClerkProvider>
+        <Header />
+        <main className="flex-1">{children}</main>
       </body>
     </html>
   );
